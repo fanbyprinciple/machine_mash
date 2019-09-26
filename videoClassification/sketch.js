@@ -1,9 +1,11 @@
 let mobileNet
-let plane
+let video
+let label = "Camera not initialised"
+let prob
 
 function modelReady(){
   console.log("Model is Ready !")
-  mobileNet.predict(plane,gotResults)
+  mobileNet.predict(gotResults)
 }
 
 function gotResults(error,results){
@@ -11,21 +13,34 @@ function gotResults(error,results){
     console.log("Could not predict")
     console.log("Probably an internet issue !")
   } else {
-    console.log(results)
+    // console.log(results)
+
+    label =results[0].label
+    prob = results[0].confidence
+    
+    mobileNet.predict(gotResults)
   }
 }
 
-function imageReady(){
-  image (plane,0,0,width,height-40)
-}
+// function imageReady(){
+//   image (plane,0,0,width,height-40)
+// }
 
 function setup(){
-  createCanvas(400,400)
+  createCanvas(640,600)
   background(0)
 
-  plane = createImg('images/flight.png',imageReady)
-  plane.hide()
-  mobileNet = ml5.imageClassifier('MobileNet', modelReady)
+  video = createCapture(VIDEO)
+  video.hide()
+  mobileNet = ml5.imageClassifier('MobileNet',video, modelReady)
 }
 
-function draw() {}
+function draw() {
+  background(0)
+  image (video,0,0)
+
+  fill (255)
+  textSize(32)
+  text(label,10,height-60)
+
+}
