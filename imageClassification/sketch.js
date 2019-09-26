@@ -12,7 +12,15 @@ function gotResults(error, results) {
     console.log("Could not predict :(")
     console.log("probably an internet issue!")
   } else {
-    console.log("results:", results)
+    //console.log("results:", results)
+    let label = results[0].label
+    console.log(results[0])
+    let prob = results[0].confidence
+    fill (255)
+    textSize(28)
+    text(label, 10, height -60)
+    createP(label)
+    createP(prob)
   }
 }
 
