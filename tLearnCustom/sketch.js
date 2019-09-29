@@ -4,6 +4,8 @@ var classifier
 var strikeButton
 var shipButton
 
+var playButton
+
 
 function modelReady(){
   console.log("Model is ready !")
@@ -37,7 +39,7 @@ function gotResults(error, result){
 
 function setup(){
   createCanvas(320,270)
-  video = createCapture(VIDEO)
+  video = createVideo(['strike.mp4']);
   video.hide()
 
   mobilenet = ml5.featureExtractor('MobileNet', modelReady)
@@ -57,10 +59,16 @@ function setup(){
   trainButton.mousePressed(function(){
     classifier.train(whileTraining)
   })
+
+  playButton = createButton('play')
+  playButton.mousePressed(function(){
+    video.loop()
+  })
 }
 
 function draw(){
   background(0)
+  
   image(video,0,0,320,240)
   fill(255)
   textSize(16)
