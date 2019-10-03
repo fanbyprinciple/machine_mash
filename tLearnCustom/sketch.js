@@ -5,6 +5,8 @@ var strikeButton
 var shipButton
 
 var playButton
+var switchButton
+var prob
 
 
 function modelReady(){
@@ -33,26 +35,29 @@ function gotResults(error, result){
   } else {
     console.log(result[0].label)
     label = result[0].label;
+    prob = result[0].confidence
     classifier.classify(gotResults)
   }
 }
 
 function setup(){
-  createCanvas(320,270)
-  video = createVideo(['strike.mp4']);
+  createCanvas(600,400)
+  video = createVideo(['strike2.mp4']);
   video.hide()
 
   mobilenet = ml5.featureExtractor('MobileNet', modelReady)
   classifier = mobilenet.classification(video, videoReady)
 
-  strikeButton = createButton('strike formation')
+  strikeButton = createButton('plane')
   strikeButton.mousePressed(function(){
-    classifier.addImage('Strike')
+    console.log("got plane")
+    classifier.addImage('Plane')
   })
 
-  shipButton = createButton('ship formation')
+  shipButton = createButton('Not plane')
   shipButton.mousePressed(function(){
-    classifier.addImage('Ship')
+    console.log("got non plane")
+    classifier.addImage('Not plane')
   })
 
   trainButton = createButton('train')
@@ -60,8 +65,17 @@ function setup(){
     classifier.train(whileTraining)
   })
 
+  
+
   playButton = createButton('play')
   playButton.mousePressed(function(){
+    video.loop()
+  })
+
+  switchbutton = createButton('switch')
+  switchbutton.mousePressed(function(){
+    video = createVideo(['strike.mp4'])
+    video.hide()
     video.loop()
   })
 }
@@ -72,5 +86,5 @@ function draw(){
   image(video,0,0,320,240)
   fill(255)
   textSize(16)
-  text(label,10,height -10)
+  text(label+" : " +prob,10,height -10)
 }
