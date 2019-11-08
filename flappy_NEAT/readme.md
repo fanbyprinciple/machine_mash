@@ -1,7 +1,7 @@
-### Robo Flappy
+### Robo Flappy AI using NEAT
 
-This bird is the prey of night. Implemented using pygame. Hoping to add AI soon.
+This bird is the prey of night. Implemented using pygame.
 
-whenever robo flappyhits ground or pipe, the score resets to 0. There is no gameover screen.
+This uses python NEAT module to implement genetic algorithm to play flappy bird. And it seems highly effective !
 
-![](flappy.gif)
+![](flappyAI.gif)
