@@ -9,7 +9,10 @@ pygame.init()
 pygame.font.init()
 
 
+
 import neat # to be installed
+
+GEN = -1
 
 WIN_WIDTH = 560
 WIN_HEIGHT = 800
@@ -170,12 +173,18 @@ def draw_window(win, birds, pipes, base, score):
     text= STAT_FONT.render("Score: " + str(score), 1, (255,255,255))
     win.blit(text, (WIN_WIDTH - 10 - text.get_width(), 10))
 
+    gen = STAT_FONT.render("Gen: " + str(GEN), 1, (255,255,255) )
+    win.blit(gen, (10,10))
+
     base.draw(win)
     for bird in birds:
         bird.draw(win)
     pygame.display.update()
 
 def main(genomes,config):
+
+    global GEN
+    GEN += 1
 
     nets = []
     ge = []
