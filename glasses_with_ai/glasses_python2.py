@@ -21,7 +21,7 @@ if  eye_cascade.empty() :
 # Create the mask for the glasses
 imgGlassesGray = cv2.cvtColor(imgGlasses, cv2.COLOR_BGR2GRAY)
 ret, orig_mask = cv2.threshold(imgGlassesGray, 10, 255, cv2.THRESH_BINARY)
-
+ 
 #orig_mask = imgGlasses[:,:,3]
 
 # Create the inverted mask for the glasses
