@@ -10,4 +10,4 @@ text = json.dumps({"0":{"instant":1,"dteday":"2011-01-01T00:00:00.000Z","season"
 
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 r = requests.post(url, data=text, headers=headers)
-print(r,r.text)
+print(r,r.text)````
