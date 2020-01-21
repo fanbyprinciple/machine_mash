@@ -1,6 +1,5 @@
 test/
 train/
-sorting_folder/
 old_dataset/
 spamham.h5
 ball.h5
