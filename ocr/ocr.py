@@ -24,6 +24,8 @@ elif args["preprocess"] == "blur":
 filename = "{}.png".format(os.getpid())
 cv2.imwrite(filename, gray)
 
+pytesseract.pytesseract.tesseract_cmd = r'Z:\Installs\tesseract\tesseract.exe'
+
 text = pytesseract.image_to_string(Image.open(filename))
 os.remove(filename)
 print(text)
