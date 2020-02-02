@@ -1,8 +1,10 @@
-import brain from "./brain"
 
-const input = document.querySelector("input")
-const example = document.querySelector("#example")
 
+input = document.querySelector("input")
+
+example = document.querySelector("#example")
+
+console.log(document.querySelector("input"))
 input.addEventListener("change", (e)=>{
     const rgb = getRgb(e.target.value)
     const network = new brain.NeuralNetwork()
@@ -13,12 +15,14 @@ input.addEventListener("change", (e)=>{
         { input: { r: 0.33, g: 0.24, b: 0.29 }, output: { dark: 1 } },
         { input: { r: 0.74, g: 0.78, b: 0.86 }, output: { light: 1 } },
         { input: { r: 0.31, g: 0.35, b: 0.41 }, output: { dark: 1 } },
-        { input: {r: 1, g: 0.99, b: 0}, output: { light: 1 } },
-        { input: {r: 1, g: 0.42, b: 0.52}, output: { dark: 1 } },
+        { input: { r: 1, g: 0.99, b: 0 }, output: { light: 1 } },
+        { input: { r: 1, g: 0.42, b: 0.52 }, output: { dark: 1 } },
       ])
 
-      const result = brain.likely(rbg, network)
+      const result = brain.likely(rgb, network)
       console.log(result)
+      example.style.background = e.target.value
+      example.style.color = result === "dark" ? "white" : "black"
       
 })
 
