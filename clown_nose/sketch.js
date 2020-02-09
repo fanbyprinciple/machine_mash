@@ -15,7 +15,7 @@ function modelLoaded(){
 }
 
 function gotPoses(poses){
-  console.log(poses)
+  //console.log(poses)
   if(poses.length >0){
   pose = poses[0].pose
   }
@@ -30,6 +30,11 @@ function draw() {
     let d = dist(eyeR.x,eyeR.y,eyeL.x,eyeL.y)
     fill(255,0,0)
     ellipse(pose.nose.x, pose.nose.y,d)
+
+    fill(0)
+    ellipse(pose.leftEye.x, pose.leftEye.y, 4)
+
+
   }
   
 }
