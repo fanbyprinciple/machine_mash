@@ -9,7 +9,7 @@ function setup(){
     inputCanvas = createCanvas(SIZE, SIZE)
     inputCanvas.class('border-box').parent('canvasContainer')
 
-    inputImg = loadImage('images/input.png', drawImage)
+    inputImg = loadImage('images/handbag.png', drawImage)
 
     outputContainer = select('#output')
     statusMsg = select('#status')
