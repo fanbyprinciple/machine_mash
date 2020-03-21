@@ -12,16 +12,28 @@
 </head>
 
 <body>
-  <h1>Pix2Pix Edges2Pichaku Example</h1>
-  <p>1. Press your mouse to draw a Pikachu on the canvas below.</p>
-  <p>2. Click 'Transfer' button.</p>
-  <p>3. A colored Pikachu image will appear in 1s.</p>
-  <p>4. Click 'Clear' button to clear the canvas and draw again.</p>
+  <h1>Pix2Pix</h1>
+  <p>
+    background: "#0006d9",
+    wall: "#0d3dfb",
+    door: "#a50000",
+    "window": "#0075ff",
+    "window sill": "#68f898",
+    "window head": "#1dffdd",
+    shutter: "#eeed28",
+    balcony: "#b8ff38",
+    trim: "#ff9204",
+    cornice: "#ff4401",
+    column: "#f60001",
+    entrance: "#00c9ff"
+  </p>
   <p id="status">Loading Model... Please wait...</p>
   <div class="flex">
     <div>
       <div id="canvasContainer"></div>
       <div id="btnContainer" class="flex flex-space-between">
+        <input id="color"></input>
+        <button id="submit">submit</button>
         <button id="clearBtn">Clear</button><br />
         <button id="transferBtn" class="btn">Transfer</button>
       </div>
@@ -31,7 +43,7 @@
     <div id="output"></div>
   </div>
 
-  <script src="sketch.js"></script>
+  <script src="facade.js"></script>
 </body>
 
 </html>
