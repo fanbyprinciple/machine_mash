@@ -6,7 +6,7 @@
 
 ## house maker
 
-Use html to model houses.
+Use html to model houses. UI improvements required.
 
 ![](houses.gif)
 
