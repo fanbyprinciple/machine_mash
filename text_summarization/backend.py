@@ -9,16 +9,18 @@ from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 
 import networkx as nx
+sentences = []
 
 def initialise():
     nltk.download('punkt')
     nltk.download('stopwords')
+    
 
 def removeStopwords(sen):
     sen_new = " ".join([i for i in sen if i not in stop_words])
     return sen_new
 
-sentences = []
+
 def tokenizeSentence(input):
     for s in input.split("\n"):
         sentences.append(sent_tokenize(s))
@@ -70,6 +72,8 @@ def createWordEmbedding():
     f.close()
 
     return word_embeddings
+
+
 
 def handleInput(input):
     initialise()
