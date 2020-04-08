@@ -5,3 +5,7 @@
 ### using skeleton
 
 ![](skeleton.gif)
+![](punchout.gif)
+
+### pose classification
+![](darksoulsvsblackpanther.gif)
