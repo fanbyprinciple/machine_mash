@@ -1,3 +1,8 @@
+import googletrans
+from googletrans import Translator
+
+translator = Translator()
+
 import cv2
 import numpy as np 
 import pytesseract
@@ -84,3 +89,11 @@ print(result)
 
 with open("bengali_result.txt", "w",encoding='utf-8') as file:
     file.write( result )
+
+
+
+
+result = translator.translate(result, src='bn', dest='en')
+
+print(result.text)
+
