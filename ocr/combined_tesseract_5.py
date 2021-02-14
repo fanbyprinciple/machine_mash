@@ -8,7 +8,7 @@ import numpy as np
 import pytesseract
 from unidecode import unidecode
 
-img = cv2.imread('test_bangla.png')
+img = cv2.imread('./img/test_bangla.png')
 # img = cv2.imread('big_text.png')
 # img = cv2.imread('arabic.png')
 
@@ -58,6 +58,7 @@ def match_template(image,template):
 
 
 grey = get_grayscale(img)
+grey = deskew(grey)
 grey = thresholding(grey)
 # grey = opening(grey)
 # canny = canny(grey) # edge detection
@@ -89,9 +90,6 @@ print(result)
 
 with open("bengali_result.txt", "w",encoding='utf-8') as file:
     file.write( result )
-
-
-
 
 result = translator.translate(result, src='bn', dest='en')
 
