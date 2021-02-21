@@ -15,3 +15,12 @@ https://nlp.stanford.edu/data/glove.6B.zip
 Summarizing a O.Henry story
 
 ![](strange_story.png)
+
+
+## Text summarization using spacy
+
+https://www.kaggle.com/fanbyprinciple/wine-summarisation-using-spacy
+
+But not quite upto the mark:
+
+![](spacy/spacy.png)
